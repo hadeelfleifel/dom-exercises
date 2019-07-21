@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Exercise #1: Changing text</title>
     <style>
-        #mydiv {
+        .mydiv {
             width: 300px;
             height: 50px;
             line-height: 50px;  /* for vertical alignment of text */
@@ -17,6 +17,17 @@
     </style>
 </head>
 <body>
-<div id="mydiv">Hello world</div>
+<div id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()" class='mydiv'>Hello world</div>
+
+
+<script>
+function mouseOver() {
+  document.getElementById("demo").innerHTML= "Can I help you?";
+}
+
+function mouseOut() {
+  document.getElementById("demo").innerHTML = "Hello world";
+}
+</script>
 </body>
 </html>
