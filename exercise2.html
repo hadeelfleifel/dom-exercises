@@ -10,11 +10,28 @@
             border: 1px solid black;
         }
     </style>
+
     <script>
-        /* TODO: write JS code here */
+    	var arr=['blue','red','green'];
+    	var counter = 0;
+        function mouseClick() {
+
+	if(counter == arr.length){
+		counter = 0;
+	}
+
+  document.getElementsByTagName("div")[0].style.background= arr[counter++];
+ 
+
+
+
+
+}
+
+
     </script>
 </head>
 <body>
-<div id="mydiv"></div>
+<div id="mydiv" onclick="mouseClick()" ></div>
 </body>
 </html>
