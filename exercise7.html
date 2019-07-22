@@ -5,9 +5,28 @@
     <title>Exercise #7: Simple playlist</title>
     <link rel="stylesheet" href="exercise7.css">
     <script>
-        /* TODO this is for you to complete */
+function addMusic(){
+		if (document.getElementById("songTextInput").value!=''){
+			var newElement=document.createElement('newElement');
+			newElement.innerHTML=document.getElementById("songTextInput").value;
+			document.getElementById("playlist").appendChild(newElement);
+
+		}
+		else {
+			alert("add song");
+		}
+		}
+		window.onload = function () {
+            document.getElementById("addButton").onclick = addMusic;
+
+        }
+    
     </script>
+    	
 </head>
+
+ 
+
 <body>
 
 <form>
@@ -20,4 +39,3 @@
 
 </body>
 </html>
-
