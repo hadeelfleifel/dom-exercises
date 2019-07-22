@@ -17,12 +17,12 @@
 </head>
 <body>
 <form name="form">
-    <select name="font_family" id="font_family">
-        <option value="Arial" selected>Arial</option>
-        <option value="Verdana">Verdana</option>
-        <option value="Helvetica">Helvetica</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Courier New">Courier New</option>
+    <select name="font_family" id="font_family" onchange="myFunction(this);>
+        <option id="arial" value="Arial" selected>Arial</option>
+        <option id="verdana" value="Verdana">Verdana</option>
+        <option id="Helvetica" value="Helvetica">Helvetica</option>
+        <option id="times" value="Times New Roman">Times New Roman</option>
+        <option id="Courier" value="Courier New">Courier New</option>
     </select>
     <select name="font_size" id="font_size">
         <option value="8pt">8pt</option>
@@ -31,11 +31,35 @@
         <option value="14pt">14pt</option>
         <option value="16pt">16pt</option>
     </select>
-    <label>Italic <input type="checkbox" name="font_italic" id="font_italic"></label>
-    <label>Bold <input type="checkbox" name="font_bold" id="font_bold"></label>
-    <label>Underline <input type="checkbox" name="font_underline" id="font_underline"></label>
+
+
+    <label>Italic <input type="checkbox" name="font_italic" id="font_italic" onchange="changed()"></label>
+    <label>Bold <input type="checkbox" name="font_bold" id="font_bold" onchange="changed()"></label>
+    <label>Underline <input type="checkbox" name="font_underline" id="font_underline" onchange="changed()"></label>
 </form>
 
 <div id="text">The quick brown fox jumps over the lazy dog</div>
+
+<script >
+    function changed(){
+        // document.getElementById("arial").style.fontFamily ="arial,serif"
+        // document.getElementById("verdana").style.fontFamily ="Verdana,serif"
+        // document.getElementById("Helvetica").style.fontFamily ="Helvetica,serif"
+        // document.getElementById("times").style.fontFamily ="Times New Roman,serif"
+        // document.getElementById("Courie").style.fontFamily ="Courier New,serif"
+
+        document.getElementById("text").style.fontWeight = "bold";
+        document.getElementById("text").style.fontStyle = "italic";
+        document.getElementById("text").style.textDecoration = "underline overline";
+
+    }
+
+    function myFunction(selectTag) {
+  var listValue = selectTag.options[selectTag.selectedIndex].text;
+  document.getElementById("text").style.fontFamily = listValue;
+}
+</script>
+
 </body>
+</html>
 </html>
