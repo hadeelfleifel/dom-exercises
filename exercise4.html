@@ -17,14 +17,14 @@
 </head>
 <body>
 <form name="form">
-    <select name="font_family" id="font_family" onchange="myFunction(this);>
+    <select name="font_family" id="font_family" onchange='fontfamily()'>
         <option id="arial" value="Arial" selected>Arial</option>
         <option id="verdana" value="Verdana">Verdana</option>
         <option id="Helvetica" value="Helvetica">Helvetica</option>
         <option id="times" value="Times New Roman">Times New Roman</option>
         <option id="Courier" value="Courier New">Courier New</option>
     </select>
-    <select name="font_size" id="font_size">
+    <select name="font_size" id="font_size" onchange='fontsize()'>
         <option value="8pt">8pt</option>
         <option value="10pt">10pt</option>
         <option value="12pt" selected>12pt</option>
@@ -33,33 +33,69 @@
     </select>
 
 
-    <label>Italic <input type="checkbox" name="font_italic" id="font_italic" onchange="changed()"></label>
-    <label>Bold <input type="checkbox" name="font_bold" id="font_bold" onchange="changed()"></label>
-    <label>Underline <input type="checkbox" name="font_underline" id="font_underline" onchange="changed()"></label>
+    <label>Italic <input type="checkbox" name="font_italic" id="font_italic" onchange="italic()"></label>
+    <label>Bold <input onchange="bold()" type="checkbox" name="font_bold" id="font_bold" ></label>
+    <label>Underline <input type="checkbox" name="font_underline" id="font_underline" onchange="underline()"></label>
 </form>
 
 <div id="text">The quick brown fox jumps over the lazy dog</div>
 
 <script >
-    function changed(){
-        // document.getElementById("arial").style.fontFamily ="arial,serif"
-        // document.getElementById("verdana").style.fontFamily ="Verdana,serif"
-        // document.getElementById("Helvetica").style.fontFamily ="Helvetica,serif"
-        // document.getElementById("times").style.fontFamily ="Times New Roman,serif"
-        // document.getElementById("Courie").style.fontFamily ="Courier New,serif"
 
-        document.getElementById("text").style.fontWeight = "bold";
-        document.getElementById("text").style.fontStyle = "italic";
-        document.getElementById("text").style.textDecoration = "underline overline";
 
-    }
+    var bFont = document.getElementById("font_bold").checked = false;
+    function bold(){
+        if(!bFont){
+            document.getElementById("text").style.fontWeight = ("bold");
+            bFont = true;
+        }
+        else if(bFont){
+                        document.getElementById("text").style.fontWeight = ("normal");
+                        bFont = false
 
-    function myFunction(selectTag) {
-  var listValue = selectTag.options[selectTag.selectedIndex].text;
-  document.getElementById("text").style.fontFamily = listValue;
-}
+        }
+        }
+
+
+    var iFont = document.getElementById("font_italic").checked = false;
+    function italic(){
+        if(!iFont){
+             document.getElementById("text").style.fontStyle = ("italic");
+             iFont = true;
+        }
+        else if(iFont){
+                        document.getElementById("text").style.fontWeight = ("normal");
+                        iFont = false
+
+        }
+        }
+
+    var uFont = document.getElementById("font_italic").checked = false;
+    function underline(){
+        if(!uFont){
+            document.getElementById("text").style.textDecoration = ("underline");
+            uFont = true;
+        }
+              else if(uFont){
+                        document.getElementById("text").style.fontWeight = ("normal");
+                        uFont = false
+
+        }
+        }
+
+
+  function fontfamily() {
+            var fFamily = document.getElementById("font_family");
+            document.getElementById("text").style.fontFamily = fFamily.value;
+        }
+        function fontsize() {
+      
+            var fSize = document.getElementById("font_size");
+            document.getElementById("text").style.fontSize = fSize.value;
+        }
+
+
 </script>
 
 </body>
-</html>
 </html>
